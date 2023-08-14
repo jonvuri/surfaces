@@ -1,0 +1,19 @@
+{
+  "name": "solid-surfaces",
+  "version": "0.1.0",
+  "description": "",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "solid-devtools": "^0.27.7",
+    "vite-plugin-solid": "^2.7.0"
+  },
+  "dependencies": {
+    "solid-js": "^1.7.11"
+  },
+  "license": "MIT"
+}
