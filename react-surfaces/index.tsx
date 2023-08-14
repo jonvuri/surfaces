@@ -1,11 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
+import Demo from './Demo'
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
+const rootEl = document.getElementById('root')
+
+if (import.meta.env.DEV && !(rootEl instanceof HTMLElement)) {
+  throw new Error(
+    'Root element not found. Did you forget to add it to your index.html? Or maybe the id attribute got misspelled?'
+  )
+}
+
+const root = ReactDOM.createRoot(rootEl!)
 
 root.render(
   <React.StrictMode>
-    <App />
+    <Demo />
   </React.StrictMode>
 )

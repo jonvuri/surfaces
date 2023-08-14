@@ -1,17 +1,8 @@
 {
+  "extends": "../tsconfig.json",
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "jsx": "react-jsx",
     "lib": ["dom", "dom.iterable", "esnext", "scripthost"],
-    "types": ["vite/client"],
-    "noEmit": true,
-    "isolatedModules": true,
-    "strict": true
-  },
-  "typeRoots": ["./node_modules/@types", "./node_modules"],
-  "include": ["src", "vite.config.ts"]
+    "jsx": "preserve",
+    "jsxImportSource": "react"
+  }
 }
