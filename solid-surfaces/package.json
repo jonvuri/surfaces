@@ -6,7 +6,9 @@
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --cache",
+    "format": "prettier . --write"
   },
   "devDependencies": {
     "solid-devtools": "^0.27.7",

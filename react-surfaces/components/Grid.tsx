@@ -1,6 +1,9 @@
 import styles from '../../common/grid.module.sass'
 
-type GridProps = React.PropsWithChildren<{}>
+// type GridProps = React.PropsWithChildren<{}>
+type GridProps = {
+  children: React.ReactNode | undefined
+}
 
 const Grid = ({ children }: GridProps) => (
   <div className={styles.container}>
