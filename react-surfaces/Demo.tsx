@@ -11,9 +11,6 @@ const Demo = () => {
 
   return (
     <main className={styles.main}>
-      <header>
-        <h1></h1>
-      </header>
       <Grid>
         <div style={{ backgroundColor: '#a0f' }}>Good Morning react-surfaces</div>
         <Button onClick={() => setCount((count) => count + 1)}>count is: {count}</Button>

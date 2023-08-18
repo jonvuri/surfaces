@@ -1,20 +1,21 @@
 import { Component, createSignal } from 'solid-js'
 
-import styles from '../common/button.module.sass'
+import Button from './components/Button'
+import Grid from './components/Grid'
+
+import '../common/global.scss'
+import styles from './demo.module.sass'
 
 const Demo: Component = () => {
   const [count, setCount] = createSignal(0)
-  // setInterval(setCounter, 1000, (c: number) => c + 1)
 
   return (
-    <>
-      <header>
-        <h1>Good Morning solid-surfaces</h1>
-      </header>
-      <button class={styles['pink-button']} onClick={() => setCount((count) => count + 1)}>
-        count is: {count()}
-      </button>
-    </>
+    <main class={styles.main}>
+      <Grid>
+        <div style={{ ['background-color']: '#a0f' }}>Good Morning solid-surfaces</div>
+        <Button onClick={() => setCount((count) => count + 1)}>count is: {count()}</Button>
+      </Grid>
+    </main>
   )
 }
 

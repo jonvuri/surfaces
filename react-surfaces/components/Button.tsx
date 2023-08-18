@@ -1,4 +1,5 @@
 import React from 'react'
+
 import styles from '../../common/button.module.sass'
 
 type ButtonProps = React.PropsWithChildren<{
@@ -6,8 +7,12 @@ type ButtonProps = React.PropsWithChildren<{
 }> &
   React.ButtonHTMLAttributes<HTMLButtonElement>
 
-export default ({ primary, children, ...props }: ButtonProps) => (
-  <button className={`${styles.container} ${primary ? styles.primary : ''}`} {...props}>
-    {children}
-  </button>
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ primary, children, ...props }, ref) => (
+    <button ref={ref} className={`${styles.container} ${primary ? styles.primary : ''}`} {...props}>
+      {children}
+    </button>
+  ),
 )
+
+export default Button
