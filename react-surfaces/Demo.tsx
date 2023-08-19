@@ -1,8 +1,8 @@
 import { useState } from 'react'
+import 'surface-fonts'
 
 import Button from './components/Button'
-import Grid from './components/Grid'
-import 'surface-fonts'
+import { Grid, GridItem } from './components/Grid'
 
 import '../common/global.scss'
 import styles from './demo.module.sass'
@@ -13,7 +13,9 @@ const Demo = () => {
   return (
     <main className={styles.main}>
       <Grid>
-        <div style={{ backgroundColor: '#a0f' }}>Good Morning react-surfaces</div>
+        <GridItem className={styles['good-morning']} columns={2}>
+          Good Morning react-surfaces
+        </GridItem>
         <Button onClick={() => setCount((count) => count + 1)}>count is: {count}</Button>
       </Grid>
     </main>

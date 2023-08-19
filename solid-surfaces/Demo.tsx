@@ -4,7 +4,7 @@ import 'surface-fonts'
 import '../common/global.scss'
 
 import Button from './components/Button'
-import Grid from './components/Grid'
+import { Grid, GridItem } from './components/Grid'
 
 import styles from './demo.module.sass'
 
@@ -14,7 +14,9 @@ const Demo: Component = () => {
   return (
     <main class={styles.main}>
       <Grid>
-        <div style={{ ['background-color']: '#a0f' }}>Good Morning solid-surfaces</div>
+        <GridItem class={styles['good-morning']} columns={2}>
+          Good Morning solid-surfaces
+        </GridItem>
         <Button onClick={() => setCount((count) => count + 1)}>count is: {count()}</Button>
       </Grid>
     </main>
