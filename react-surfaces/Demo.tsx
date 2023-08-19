@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import Button from './components/Button'
 import Grid from './components/Grid'
+import 'surface-fonts'
 
 import '../common/global.scss'
 import styles from './demo.module.sass'

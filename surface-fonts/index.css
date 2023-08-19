@@ -1,0 +1,105 @@
+/* wipeout fonts */
+
+@font-face {
+  font-family: '2097';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('./wipeout/2097.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: '2197 Block';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('./wipeout/2197 Block.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: '2197 Heavy';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('./wipeout/2197 Heavy.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Amalgama';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('./wipeout/Amalgama.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Assegai Rounded';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('./wipeout/Assegai Rounded.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'F500 Ang-ular';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('./wipeout/F500 Ang-ular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'F5000';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('./wipeout/F5000.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Fusion';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('./wipeout/Fusion.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'FX300 Angular';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('./wipeout/FX300 Angular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'FX300';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('./wipeout/FX300.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'supErphoniX2';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('./wipeout/supErphoniX2.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'WO3';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('./wipeout/WO3.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'X2';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('./wipeout/X2.ttf') format('truetype');
+}
