@@ -1,0 +1,48 @@
+@import './normalize.sass'
+
+$background-color: #fafafa
+$text-color: #050505
+$primary-color: #444
+$secondary-color: #e1e1e1
+$accent-color: #a0f
+
+:root
+  --background-color: $background-color
+  --text-color: $text-color
+  --primary-color: $primary-color
+  --secondary-color: $secondary-color
+  --accent-color: $accent-color
+
+@media (prefers-color-scheme: dark)
+  :root
+    @debug invert($background-color)
+    --background-color: invert($background-color)
+    --text-color: invert($text-color)
+    --primary-color: invert($primary-color)
+    --secondary-color: invert($secondary-color)
+
+*
+  box-sizing: border-box
+
+body
+  background-color: var(--background-color)
+  color: var(--text-color)
+  font-family: 'X2', ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace
+
+button
+  margin-bottom: 1rem
+input,
+textarea,
+select,
+fieldset
+  margin-bottom: 1.5rem
+pre,
+blockquote,
+dl,
+figure,
+table,
+p,
+ul,
+ol,
+form
+  margin-bottom: 2.5rem
