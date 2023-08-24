@@ -7,19 +7,18 @@ $secondary-color: #e1e1e1
 $accent-color: #a0f
 
 :root
-  --background-color: $background-color
-  --text-color: $text-color
-  --primary-color: $primary-color
-  --secondary-color: $secondary-color
-  --accent-color: $accent-color
+  --background-color: #{$background-color}
+  --text-color: #{$text-color}
+  --primary-color: #{$primary-color}
+  --secondary-color: #{$secondary-color}
+  --accent-color: #{$accent-color}
 
 @media (prefers-color-scheme: dark)
   :root
-    @debug invert($background-color)
-    --background-color: invert($background-color)
-    --text-color: invert($text-color)
-    --primary-color: invert($primary-color)
-    --secondary-color: invert($secondary-color)
+    --background-color: #{invert($background-color)}
+    --text-color: #{invert($text-color)}
+    --primary-color: #{invert($primary-color)}
+    --secondary-color: #{invert($secondary-color)}
 
 *
   box-sizing: border-box

@@ -8,7 +8,11 @@ type ButtonProps = {
 } & JSX.HTMLAttributes<HTMLButtonElement>
 
 const Button: ParentComponent<ButtonProps> = ({ primary, children, ref, ...props }) => (
-  <button ref={ref} classList={{ [styles.container]: true, [styles.primary]: primary }} {...props}>
+  <button
+    ref={ref}
+    classList={{ [styles.container]: true, [styles.primary]: primary }}
+    {...props}
+  >
     {children}
   </button>
 )
