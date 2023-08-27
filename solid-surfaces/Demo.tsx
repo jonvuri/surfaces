@@ -5,6 +5,7 @@ import '../common/global.sass'
 
 import Button from './components/Button'
 import { Grid, GridItem } from './components/Grid'
+import Input from './components/Input'
 import Table from './components/Table'
 
 import styles from './demo.module.sass'
@@ -19,6 +20,7 @@ const Demo: Component = () => {
           Good Morning solid-surfaces
         </GridItem>
         <Button onClick={() => setCount((count) => count + 1)}>count is: {count()}</Button>
+        <Input />
         <Table
           columns={[
             { key: 'name', name: 'Name' },

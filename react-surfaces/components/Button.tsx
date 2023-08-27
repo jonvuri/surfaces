@@ -9,7 +9,11 @@ type ButtonProps = React.PropsWithChildren<{
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ primary, children, ...props }, ref) => (
-    <button ref={ref} className={`${styles.container} ${primary ? styles.primary : ''}`} {...props}>
+    <button
+      ref={ref}
+      className={`${styles.button} ${primary ? styles.primary : ''}`}
+      {...props}
+    >
       {children}
     </button>
   ),

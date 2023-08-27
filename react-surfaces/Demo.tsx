@@ -2,6 +2,7 @@ import { useState } from 'react'
 import 'surface-fonts'
 
 import Button from './components/Button'
+import Input from './components/Input'
 import { Grid, GridItem } from './components/Grid'
 import Table from './components/Table'
 
@@ -18,6 +19,7 @@ const Demo = () => {
           Good Morning react-surfaces
         </GridItem>
         <Button onClick={() => setCount((count) => count + 1)}>count is: {count}</Button>
+        <Input />
         <Table
           columns={[
             { key: 'name', name: 'Name' },

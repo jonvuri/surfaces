@@ -1,0 +1,18 @@
+.input
+    height: 38px
+    padding: 6px 10px /* The 6px vertically centers text on FF, ignored by Webkit */
+    background-color: var(--background-color)
+    color: var(--text-color)
+    border: 1px solid var(--secondary-color)
+    outline: none
+    box-shadow: none
+    box-sizing: border-box
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
+
+    &.primary
+        border: 1px solid var(--primary-color)
+
+    &:focus
+        border: 1px solid var(--accent-color)
