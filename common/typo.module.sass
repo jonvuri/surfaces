@@ -1,0 +1,30 @@
+@mixin header-base
+    margin-top: 0
+    margin-bottom: 1rem
+    font-family: 'X2', ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace
+    font-weight: 300
+    line-height: 1.2
+
+.header
+    @include header-base
+
+    font-size: 3rem
+
+.subheader
+    @include header-base
+
+    font-size: 1.5rem
+
+.contrast-header
+    @include header-base
+
+    font-size: 1.5rem
+    background-color: var(--text-color)
+    color: var(--background-color)
+
+.gutter-header
+    margin-top: 0
+    margin-bottom: 0
+    font-size: 0.75rem
+    line-height: 1.2
+    font-weight: 300

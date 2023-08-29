@@ -1,4 +1,4 @@
-import { JSX, ParentComponent } from 'solid-js'
+import { Index, JSX, ParentComponent } from 'solid-js'
 
 import styles from '../../common/grid.module.sass'
 
@@ -13,22 +13,38 @@ export const GridItem: ParentComponent<GridItemProps> = ({
   children,
   ...props
 }) => (
-  <div style={{ 'grid-column': `span ${columns}`, 'grid-row': `span ${rows}` }} {...props}>
+  <div
+    style={{
+      'grid-column': columns === 0 ? '1 / -1' : `span ${columns}`,
+      'grid-row': rows === 0 ? '1 / -1' : `span ${rows}`,
+    }}
+    {...props}
+  >
     {children}
   </div>
 )
 
-export const Grid: ParentComponent = ({ children }) => (
+type GridProps = {
+  columns?: number
+}
+
+export const Grid: ParentComponent<GridProps> = ({ columns = 12, children }) => (
   <div class={styles.container}>
     <div class={styles.background_grid}>
-      <div class={styles.background_grid_filler_column} />
-      <div class={styles.background_grid_filler_column} />
-      <div class={styles.background_grid_filler_column} />
-      <div class={styles.background_grid_filler_column} />
-      <div class={styles.background_grid_filler_column} />
-      <div class={styles.background_grid_filler_column} />
-      <div class={styles.background_grid_filler_column} />
-      <div class={styles.background_grid_filler_column} />
+      <Index each={new Array(columns)}>
+        {() => <div class={styles.background_grid_filler_column} />}
+      </Index>
+    </div>
+    <div class={styles.grid}>{children}</div>
+  </div>
+)
+
+export const LayoutGrid: ParentComponent<GridProps> = ({ children }) => (
+  <div class={styles.container}>
+    <div class={styles.background_grid}>
+      <Index each={new Array(12)}>
+        {() => <div class={styles.background_grid_filler_column} />}
+      </Index>
     </div>
     <div class={styles.grid}>{children}</div>
   </div>
