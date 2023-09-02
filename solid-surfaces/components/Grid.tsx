@@ -28,7 +28,7 @@ type GridProps = {
   columns?: number
 }
 
-export const Grid: ParentComponent<GridProps> = ({ columns = 12, children }) => (
+export const Grid: ParentComponent<GridProps> = ({ columns = 2, children }) => (
   <div class={styles.container}>
     <div class={styles.background_grid}>
       <Index each={new Array(columns)}>
