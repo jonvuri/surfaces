@@ -7,10 +7,22 @@ import Button from './components/Button'
 import { LayoutGrid, Grid } from './components/Grid'
 import Input from './components/Input'
 import Table from './components/Table'
+import Boxed from './components/stellation/Boxed'
 import { Dimmed } from './components/typo/Color'
 import { Header, Subheader, ContrastHeader, GutterHeader } from './components/typo/Header'
 
 import styles from './demo.module.sass'
+import Tagged from './components/stellation/Tagged'
+
+const Divider = () => (
+  <Grid full>
+    <br />
+    <hr />
+    <br />
+  </Grid>
+)
+
+const Spacer = () => <div style={{ height: '1rem' }} />
 
 const Demo: Component = () => {
   const [count, setCount] = createSignal(0)
@@ -42,11 +54,7 @@ const Demo: Component = () => {
           </Grid>
         </Grid>
 
-        <Grid full>
-          <br />
-          <hr />
-          <br />
-        </Grid>
+        <Divider />
 
         <Grid full>
           <Subheader>
@@ -59,11 +67,7 @@ const Demo: Component = () => {
           </Grid>
         </Grid>
 
-        <Grid full>
-          <br />
-          <hr />
-          <br />
-        </Grid>
+        <Divider />
 
         <Grid full>
           <Subheader>
@@ -76,11 +80,7 @@ const Demo: Component = () => {
           </Grid>
         </Grid>
 
-        <Grid full>
-          <br />
-          <hr />
-          <br />
-        </Grid>
+        <Divider />
 
         <Grid full>
           <Subheader>
@@ -113,6 +113,59 @@ const Demo: Component = () => {
             ]}
           />
         </Grid>
+
+        <Divider />
+
+        <Grid full>
+          <Subheader>
+            <Dimmed>Stellations</Dimmed>
+          </Subheader>
+        </Grid>
+        <Grid full subgrid background>
+          <Grid full>
+            <Boxed>Boxed</Boxed>
+          </Grid>
+
+          <Spacer />
+
+          <Grid full>
+            <Boxed emphasis>Boxed - emphasis</Boxed>
+          </Grid>
+
+          <Spacer />
+
+          <Grid full>
+            <Boxed accent>Boxed - accent</Boxed>
+          </Grid>
+
+          <Spacer />
+
+          <Grid full>
+            <Boxed half>Half boxed</Boxed>
+          </Grid>
+
+          <Spacer />
+
+          <Grid full>
+            <Boxed half inverted>
+              Half boxed inverted
+            </Boxed>
+          </Grid>
+
+          <Spacer />
+
+          <Grid full>
+            <Tagged>Tagged</Tagged>
+          </Grid>
+
+          <Spacer />
+
+          <Grid full>
+            <Tagged bottom>Tagged - bottom</Tagged>
+          </Grid>
+        </Grid>
+
+        <div style={{ height: '3rem' }} />
       </LayoutGrid>
     </main>
   )

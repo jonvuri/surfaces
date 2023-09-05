@@ -1,5 +1,7 @@
 import { Component, For, JSX, Ref } from 'solid-js'
 
+import Boxed from './stellation/Boxed'
+
 import styles from '../../common/table.module.sass'
 
 type ColumnSpec = {
@@ -28,7 +30,13 @@ const Table: Component<TableProps> = ({ columns, data, ref, ...props }) => (
       <For each={data}>
         {(row) => (
           <tr>
-            <For each={columns}>{({ key }) => <td>{row[key]}</td>}</For>
+            <For each={columns}>
+              {({ key }) => (
+                <td>
+                  <Boxed>{row[key]}</Boxed>
+                </td>
+              )}
+            </For>
           </tr>
         )}
       </For>

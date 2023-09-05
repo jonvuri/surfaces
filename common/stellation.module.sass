@@ -1,0 +1,53 @@
+
+$color: var(--secondary-color)
+$size: 8px
+$thickness: 1px
+
+.boxed
+    width: 100%
+    height: 100%
+    padding: 12px 16px
+
+    &.full
+        outline-width: $thickness
+        outline-style: solid
+        outline-color: $color
+        outline-offset: calc(-1 * $thickness)
+        mask: conic-gradient(at $size $size, #0000 75%, #000 0) 0 0 / calc(100% - $size) calc(100% - $size), linear-gradient(#000 0 0) content-box
+
+    &.emphasis
+        outline-color: var(--text-color)
+
+    &.accent
+        outline-color: var(--accent-color)
+
+    &.half
+        background-image: conic-gradient(from 90deg at top $thickness left $thickness, #0000 25%, $color 0), conic-gradient(from -90deg at bottom $thickness right $thickness, #0000 25%, $color 0)
+        background-position: 0% 0%, 100% 100%
+        background-size: $size $size
+        background-repeat: no-repeat
+
+        &.inverted
+            background-image: conic-gradient(from 180deg at top $thickness right $thickness, #0000 25%, $color 0), conic-gradient(from 0deg at bottom $thickness left $thickness, #0000 25%, $color 0)
+            background-position: 100% 0%, 0% 100%
+
+.tagged
+    position: relative
+
+    &:not(.bottom)::before
+        content: ""
+        position: absolute
+        width: 8px
+        height: 2px
+        top: 2px
+        left: -16px
+        border-top: 1px solid var(--text-color)
+
+    &.bottom::before
+        content: ""
+        position: absolute
+        width: 8px
+        height: 2px
+        bottom: 3px
+        left: -16px
+        border-bottom: 1px solid var(--text-color)
