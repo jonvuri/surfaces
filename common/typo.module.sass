@@ -15,16 +15,19 @@
 
     font-size: 1.5rem
 
+.gutter-header
+    @include header-base
+
+    font-size: 0.75rem
+
 .contrast-header
     @include header-base
+
+    width: max-content
 
     font-size: 1.5rem
     background-color: var(--text-color)
     color: var(--background-color)
 
-.gutter-header
-    margin-top: 0
-    margin-bottom: 0
-    font-size: 0.75rem
-    line-height: 1.2
-    font-weight: 300
+.dimmed
+    opacity: 0.5

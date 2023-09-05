@@ -1,0 +1,14 @@
+$sm-max: 768px
+$md-max: 1150px
+
+@mixin sm
+    @media all and (max-width: $sm-max)
+        @content
+
+@mixin md
+    @media all and (min-width: $sm-max + 1) and (max-width: $md-max)
+        @content
+
+@mixin lg
+    @media all and (min-width: $md-max + 1)
+        @content
