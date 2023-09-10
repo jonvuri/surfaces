@@ -16,16 +16,19 @@ type Row = Record<string, ColumnData> & { id: string }
 type TableProps = {
   columns: ColumnSpec[]
   data: Row[]
+  header?: boolean
   ref?: Ref<HTMLTableElement>
 } & JSX.HTMLAttributes<HTMLTableElement>
 
-const Table: Component<TableProps> = ({ columns, data, ref, ...props }) => (
+const Table: Component<TableProps> = ({ columns, data, header = true, ref, ...props }) => (
   <table ref={ref} class={styles['table']} {...props}>
-    <thead>
-      <tr>
-        <For each={columns}>{({ name }) => <th>{name}</th>}</For>
-      </tr>
-    </thead>
+    {header && (
+      <thead>
+        <tr>
+          <For each={columns}>{({ name }) => <th>{name}</th>}</For>
+        </tr>
+      </thead>
+    )}
     <tbody>
       <For each={data}>
         {(row) => (
