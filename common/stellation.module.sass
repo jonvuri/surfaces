@@ -13,7 +13,7 @@ $thickness: 1px
         outline-style: solid
         outline-color: $color
         outline-offset: calc(-1 * $thickness)
-        mask: conic-gradient(at $size $size, #0000 75%, #000 0) 0 0 / calc(100% - $size) calc(100% - $size), linear-gradient(#000 0 0) content-box
+        -webkit-mask: conic-gradient(at $size $size, #0000 75%, #000 0) 0 0 / calc(100% - $size) calc(100% - $size), linear-gradient(#000 0 0) content-box
 
     &.emphasis
         outline-color: var(--text-color)
@@ -39,7 +39,7 @@ $thickness: 1px
         position: absolute
         width: 8px
         height: 2px
-        top: 2px
+        top: 0.5px
         left: -16px
         border-top: 1px solid var(--text-color)
 
@@ -48,6 +48,6 @@ $thickness: 1px
         position: absolute
         width: 8px
         height: 2px
-        bottom: 3px
+        bottom: 0.5px
         left: -16px
         border-bottom: 1px solid var(--text-color)
