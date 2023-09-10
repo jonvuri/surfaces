@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "solid-js": "^1.7.11",
-    "surface-fonts": "^1.0.0"
+    "surface-fonts": "../surface-fonts"
   },
   "license": "MIT"
 }
