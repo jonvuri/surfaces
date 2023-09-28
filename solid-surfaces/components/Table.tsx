@@ -1,4 +1,4 @@
-import { Component, For, JSX, Ref } from 'solid-js'
+import { Component, For, JSX } from 'solid-js'
 
 import Boxed from './stellation/Boxed'
 
@@ -11,32 +11,31 @@ type ColumnSpec = {
 
 type ColumnData = string | number | boolean | null | undefined
 
-type Row = Record<string, ColumnData> & { id: string }
+type Row = Record<string, ColumnData>
 
 type TableProps = {
   columns: ColumnSpec[]
   data: Row[]
   header?: boolean
-  ref?: Ref<HTMLTableElement>
 } & JSX.HTMLAttributes<HTMLTableElement>
 
-const Table: Component<TableProps> = ({ columns, data, header = true, ref, ...props }) => (
-  <table ref={ref} class={styles['table']} {...props}>
-    {header && (
+const Table: Component<TableProps> = (props) => (
+  <table class={styles['table']} {...props}>
+    {(props.header ?? true) && (
       <thead>
         <tr>
-          <For each={columns}>{({ name }) => <th>{name}</th>}</For>
+          <For each={props.columns}>{(column) => <th>{column.name}</th>}</For>
         </tr>
       </thead>
     )}
     <tbody>
-      <For each={data}>
+      <For each={props.data}>
         {(row) => (
           <tr>
-            <For each={columns}>
-              {({ key }) => (
+            <For each={props.columns}>
+              {(column) => (
                 <td>
-                  <Boxed>{row[key]}</Boxed>
+                  <Boxed>{row[column.key]}</Boxed>
                 </td>
               )}
             </For>

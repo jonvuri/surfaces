@@ -9,26 +9,19 @@ type BoxedProps = {
   inverted?: boolean
 } & JSX.HTMLAttributes<HTMLDivElement>
 
-const Boxed: ParentComponent<BoxedProps> = ({
-  accent,
-  emphasis,
-  half,
-  inverted,
-  children,
-  ...props
-}) => (
+const Boxed: ParentComponent<BoxedProps> = (props) => (
   <div
     classList={{
       [styles.boxed]: true,
-      [styles.full]: !half,
-      [styles.half]: half,
-      [styles.inverted]: inverted,
-      [styles.accent]: accent,
-      [styles.emphasis]: !accent && emphasis,
+      [styles.full]: !props.half,
+      [styles.half]: props.half,
+      [styles.inverted]: props.inverted,
+      [styles.accent]: props.accent,
+      [styles.emphasis]: !props.accent && props.emphasis,
     }}
     {...props}
   >
-    {children}
+    {props.children}
   </div>
 )
 

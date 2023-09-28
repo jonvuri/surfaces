@@ -11,32 +11,23 @@ type GridItemProps = {
   subgrid?: boolean
 } & JSX.HTMLAttributes<HTMLDivElement>
 
-export const Grid: ParentComponent<GridItemProps> = ({
-  sm,
-  md,
-  lg,
-  background = false,
-  full = false,
-  subgrid = false,
-  children,
-  ...props
-}) => (
+export const Grid: ParentComponent<GridItemProps> = (props) => (
   <div
     classList={
-      full
+      props.full
         ? {
             [styles[`sm-span-4`]]: true,
             [styles[`md-span-8`]]: true,
             [styles[`lg-span-16`]]: true,
           }
         : {
-            ...(sm && { [styles[`sm-span-${sm}`]]: true }),
-            ...(md && { [styles[`sm-span-${md}`]]: true }),
-            ...(lg && { [styles[`sm-span-${lg}`]]: true }),
+            ...(props.sm && { [styles[`sm-span-${props.sm}`]]: true }),
+            ...(props.md && { [styles[`sm-span-${props.md}`]]: true }),
+            ...(props.lg && { [styles[`sm-span-${props.lg}`]]: true }),
           }
     }
     style={{
-      ...(subgrid && {
+      ...(props.subgrid && {
         display: 'grid',
         position: 'relative',
         'grid-template-columns': 'subgrid',
@@ -44,20 +35,28 @@ export const Grid: ParentComponent<GridItemProps> = ({
     }}
     {...props}
   >
-    {background && (
+    {props.background && (
       <div class={styles.background_grid}>
-        <Index each={new Array(full ? 4 : sm || 0)}>
+        <Index each={new Array(props.full ? 4 : props.sm || 0)}>
           {() => <div class={styles.background_grid_filler_column_sm} />}
         </Index>
-        <Index each={new Array(full ? 4 : Math.min(0, (md || 0) - (sm || 0)))}>
+        <Index
+          each={new Array(props.full ? 4 : Math.min(0, (props.md || 0) - (props.sm || 0)))}
+        >
           {() => <div class={styles.background_grid_filler_column_md} />}
         </Index>
-        <Index each={new Array(full ? 8 : Math.min(0, (lg || 0) - (md || 0) - (sm || 0)))}>
+        <Index
+          each={
+            new Array(
+              props.full ? 8 : Math.min(0, (props.lg || 0) - (props.md || 0) - (props.sm || 0)),
+            )
+          }
+        >
           {() => <div class={styles.background_grid_filler_column_lg} />}
         </Index>
       </div>
     )}
-    {children}
+    {props.children}
   </div>
 )
 
@@ -71,8 +70,8 @@ type GridProps = {
  * for all nested grids. Any `Grid` nested in the `LayoutGrid` will
  * be a subgrid and automatically align to the `LayoutGrid`'s columns.
  */
-export const LayoutGrid: ParentComponent<GridProps> = ({ children }) => (
+export const LayoutGrid: ParentComponent<GridProps> = (props) => (
   <div class={styles.container}>
-    <div class={styles['layout-grid']}>{children}</div>
+    <div class={styles['layout-grid']}>{props.children}</div>
   </div>
 )
