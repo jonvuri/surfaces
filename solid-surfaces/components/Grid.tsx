@@ -9,6 +9,7 @@ type GridItemProps = {
   background?: boolean
   full?: boolean
   subgrid?: boolean
+  row_template?: string
 } & JSX.HTMLAttributes<HTMLDivElement>
 
 export const Grid: ParentComponent<GridItemProps> = (props) => (
@@ -32,6 +33,7 @@ export const Grid: ParentComponent<GridItemProps> = (props) => (
         position: 'relative',
         'grid-template-columns': 'subgrid',
       }),
+      ...(props.row_template && { 'grid-template-rows': props.row_template }),
     }}
     {...props}
   >
@@ -60,9 +62,10 @@ export const Grid: ParentComponent<GridItemProps> = (props) => (
   </div>
 )
 
-type GridProps = {
+type LayoutGridProps = {
   columns?: number
-}
+  row_template?: string
+} & JSX.HTMLAttributes<HTMLDivElement>
 
 /**
  * Responsive grid used for page layout at the top level.
@@ -70,8 +73,13 @@ type GridProps = {
  * for all nested grids. Any `Grid` nested in the `LayoutGrid` will
  * be a subgrid and automatically align to the `LayoutGrid`'s columns.
  */
-export const LayoutGrid: ParentComponent<GridProps> = (props) => (
-  <div class={styles.container}>
-    <div class={styles['layout-grid']}>{props.children}</div>
+export const LayoutGrid: ParentComponent<LayoutGridProps> = (props) => (
+  <div class={styles.container} {...props}>
+    <div
+      class={styles['layout-grid']}
+      style={props.row_template ? { 'grid-template-rows': props.row_template } : undefined}
+    >
+      {props.children}
+    </div>
   </div>
 )
