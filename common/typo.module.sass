@@ -1,9 +1,12 @@
 @mixin header-base
-    margin-top: 0
-    margin-bottom: 1rem
     font-family: 'X2', ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace
     font-weight: 300
     line-height: 1.2
+    margin: 0
+
+    &.margin
+        margin-top: 0
+        margin-bottom: 1rem
 
 .header
     @include header-base
