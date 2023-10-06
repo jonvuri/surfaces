@@ -1,7 +1,16 @@
 .button
     width: max-content
     height: max-content
+    margin: 1px
     padding: 0.5rem 1rem
+    background: transparent
+    color: var(--text-color)
+    border: 1px solid var(--text-color)
+
+    &:hover
+        margin: 0
+        border: 2px solid var(--text-color)
+        background: var(--shade-color)
 
     &.primary
         color: var(--accent-color)

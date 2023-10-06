@@ -4,8 +4,6 @@ $size: 8px
 $thickness: 1px
 
 .boxed
-    width: 100%
-    height: 100%
     padding: 12px 16px
 
     &.full
@@ -51,3 +49,16 @@ $thickness: 1px
         bottom: 0.5px
         left: -16px
         border-bottom: 1px solid var(--text-color)
+
+.lined
+    position: relative
+
+    &::before
+        content: ""
+        position: absolute
+        bottom: -1px
+        width: 100%
+        height: 6px
+        transform: skew(-70deg)
+        border-bottom: 1px solid var(--text-color)
+        border-right: 1px solid var(--text-color)
