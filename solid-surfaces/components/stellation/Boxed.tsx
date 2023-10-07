@@ -11,6 +11,7 @@ type BoxedProps = {
 
 const Boxed: ParentComponent<BoxedProps> = (props) => (
   <div
+    {...props}
     classList={{
       [styles.boxed]: true,
       [styles.full]: !props.half,
@@ -18,8 +19,8 @@ const Boxed: ParentComponent<BoxedProps> = (props) => (
       [styles.inverted]: props.inverted,
       [styles.accent]: props.accent,
       [styles.emphasis]: !props.accent && props.emphasis,
+      ...props.classList,
     }}
-    {...props}
   >
     {props.children}
   </div>

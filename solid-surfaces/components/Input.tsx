@@ -14,15 +14,19 @@ const Input: Component<InputProps> = (props) => {
       <span class={styles.label}>{props.label}</span>
       <input
         ref={ref}
-        classList={{ [styles.input]: true, [styles.primary]: props.primary }}
         {...props}
+        classList={{
+          [styles.input]: true,
+          [styles.primary]: props.primary,
+          ...props.classList,
+        }}
       />
     </label>
   ) : (
     <input
       ref={ref}
-      classList={{ [styles.input]: true, [styles.primary]: props.primary }}
       {...props}
+      classList={{ [styles.input]: true, [styles.primary]: props.primary, ...props.classList }}
     />
   )
 }

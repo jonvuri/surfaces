@@ -7,7 +7,10 @@ type LinedProps = {
 } & JSX.HTMLAttributes<HTMLDivElement>
 
 const Lined: ParentComponent<LinedProps> = (props) => (
-  <div classList={{ [styles.lined]: true, [styles.bottom]: props.bottom }} {...props}>
+  <div
+    {...props}
+    classList={{ [styles.lined]: true, [styles.bottom]: props.bottom, ...props.classList }}
+  >
     {props.children}
   </div>
 )

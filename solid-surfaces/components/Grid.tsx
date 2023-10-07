@@ -14,8 +14,9 @@ type GridItemProps = {
 
 export const Grid: ParentComponent<GridItemProps> = (props) => (
   <div
-    classList={
-      props.full
+    {...props}
+    classList={{
+      ...(props.full
         ? {
             [styles[`sm-span-4`]]: true,
             [styles[`md-span-8`]]: true,
@@ -25,8 +26,9 @@ export const Grid: ParentComponent<GridItemProps> = (props) => (
             ...(props.sm && { [styles[`sm-span-${props.sm}`]]: true }),
             ...(props.md && { [styles[`sm-span-${props.md}`]]: true }),
             ...(props.lg && { [styles[`sm-span-${props.lg}`]]: true }),
-          }
-    }
+          }),
+      ...props.classList,
+    }}
     style={{
       ...(props.subgrid && {
         display: 'grid',
@@ -34,8 +36,8 @@ export const Grid: ParentComponent<GridItemProps> = (props) => (
         'grid-template-columns': 'subgrid',
       }),
       ...(props.row_template && { 'grid-template-rows': props.row_template }),
+      ...(typeof props.style === 'object' && props.style),
     }}
-    {...props}
   >
     {props.background && (
       <div class={styles.background_grid}>

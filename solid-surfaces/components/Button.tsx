@@ -7,7 +7,10 @@ type ButtonProps = {
 } & JSX.HTMLAttributes<HTMLButtonElement>
 
 const Button: ParentComponent<ButtonProps> = (props) => (
-  <button classList={{ [styles.button]: true, [styles.primary]: props.primary }} {...props}>
+  <button
+    {...props}
+    classList={{ [styles.button]: true, [styles.primary]: props.primary, ...props.classList }}
+  >
     {props.children}
   </button>
 )

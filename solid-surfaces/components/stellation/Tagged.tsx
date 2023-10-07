@@ -7,7 +7,10 @@ type TaggedProps = {
 } & JSX.HTMLAttributes<HTMLDivElement>
 
 const Tagged: ParentComponent<TaggedProps> = (props) => (
-  <div classList={{ [styles.tagged]: true, [styles.bottom]: props.bottom }} {...props}>
+  <div
+    {...props}
+    classList={{ [styles.tagged]: true, [styles.bottom]: props.bottom, ...props.classList }}
+  >
     {props.children}
   </div>
 )
