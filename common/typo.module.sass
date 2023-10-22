@@ -1,3 +1,6 @@
+$gradient-from: #14b8a6
+$gradient-to: #3b82f6
+
 @mixin header-base
     font-family: 'X2', ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace
     font-weight: 300
@@ -31,6 +34,12 @@
     font-size: 1.5rem
     background-color: var(--text-color)
     color: var(--background-color)
+
+.shimmer
+    -webkit-background-clip: text
+    background-clip: text
+    background-image: linear-gradient(to right, $gradient-from, $gradient-to)
+    color: transparent
 
 .dimmed
     opacity: 0.5
