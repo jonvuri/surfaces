@@ -67,7 +67,9 @@ export const Grid: ParentComponent<GridItemProps> = (props) => (
 type LayoutGridProps = {
   columns?: number
   row_template?: string
-} & JSX.HTMLAttributes<HTMLDivElement>
+  containerClassList?: Record<string, boolean>
+  gridClassList?: Record<string, boolean>
+}
 
 /**
  * Responsive grid used for page layout at the top level.
@@ -76,9 +78,9 @@ type LayoutGridProps = {
  * be a subgrid and automatically align to the `LayoutGrid`'s columns.
  */
 export const LayoutGrid: ParentComponent<LayoutGridProps> = (props) => (
-  <div class={styles.container} {...props}>
+  <div classList={{ [styles.container]: true, ...props.containerClassList }}>
     <div
-      class={styles['layout-grid']}
+      classList={{ [styles['layout-grid']]: true, ...props.gridClassList }}
       style={props.row_template ? { 'grid-template-rows': props.row_template } : undefined}
     >
       {props.children}

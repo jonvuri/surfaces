@@ -1,5 +1,5 @@
 
-$color: var(--secondary-color)
+$color: #4f4f4f
 $size: 8px
 $thickness: 1px
 
@@ -32,7 +32,7 @@ $thickness: 1px
 .tagged
     position: relative
 
-    &:not(.bottom)::before
+    .top::before
         content: ""
         position: absolute
         width: 8px
@@ -49,6 +49,64 @@ $thickness: 1px
         bottom: 0.5px
         left: -16px
         border-bottom: 1px solid var(--text-color)
+
+    &.right-top::before
+        content: ""
+        position: absolute
+        width: 8px
+        height: 2px
+        top: 0.5px
+        right: -16px
+        border-top: 1px solid var(--text-color)
+
+    &.right-bottom::before
+        content: ""
+        position: absolute
+        width: 8px
+        height: 2px
+        bottom: 0.5px
+        right: -16px
+        border-bottom: 1px solid var(--text-color)
+
+    &.inner-top::before
+        content: ""
+        position: absolute
+        width: 8px
+        height: 2px
+        top: 0.5px
+        left: 0
+        border-top: 1px solid var(--text-color)
+        border-right: 1px solid var(--text-color)
+
+    &.inner-bottom::before
+        content: ""
+        position: absolute
+        width: 8px
+        height: 2px
+        bottom: 0.5px
+        left: 0
+        border-bottom: 1px solid var(--text-color)
+        border-right: 1px solid var(--text-color)
+
+    &.inner-right-top::before
+        content: ""
+        position: absolute
+        width: 8px
+        height: 2px
+        top: 0.5px
+        right: 0
+        border-top: 1px solid var(--text-color)
+        border-left: 1px solid var(--text-color)
+
+    &.inner-right-bottom::before
+        content: ""
+        position: absolute
+        width: 8px
+        height: 2px
+        bottom: 0.5px
+        right: 0
+        border-bottom: 1px solid var(--text-color)
+        border-left: 1px solid var(--text-color)
 
 .lined
     position: relative
