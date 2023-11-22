@@ -2,52 +2,39 @@ import { JSX, ParentComponent } from 'solid-js'
 
 import styles from '../../../common/stellation.module.sass'
 
-type Position =
-  | 'top'
-  | 'bottom'
-  | 'rightTop'
-  | 'rightBottom'
-  | 'innerTop'
-  | 'innerBottom'
-  | 'innerRightTop'
-  | 'innerRightBottom'
-
 type TaggedProps = {
-  bottom?: boolean
-  right?: boolean
-  inner?: boolean
+  accent?: boolean | (() => boolean)
+  topLeft?: boolean | (() => boolean)
+  bottomLeft?: boolean | (() => boolean)
+  topRight?: boolean | (() => boolean)
+  bottomRight?: boolean | (() => boolean)
+  innerTopLeft?: boolean | (() => boolean)
+  innerBottomLeft?: boolean | (() => boolean)
+  innerTopRight?: boolean | (() => boolean)
+  innerBottomRight?: boolean | (() => boolean)
 } & JSX.HTMLAttributes<HTMLDivElement>
 
 const Tagged: ParentComponent<TaggedProps> = (props) => {
-  const position: Position = props.bottom
-    ? props.right
-      ? props.inner
-        ? 'innerRightBottom'
-        : 'rightBottom'
-      : props.inner
-      ? 'innerBottom'
-      : 'bottom'
-    : props.right
-    ? props.inner
-      ? 'innerRightTop'
-      : 'rightTop'
-    : props.inner
-    ? 'innerTop'
-    : 'top'
+  const val = (prop?: boolean | (() => boolean)) => {
+    return typeof prop === 'function' ? prop() : prop ?? false
+  }
 
+  // This doesn't actually work as expected currently, because there is only ever one
+  // ::before pseudo-element. Combined on the same side will mostly work. This should
+  // eventually be upgraded to create new divs here instead of using pseudo-elements.
   return (
     <div
-      {...props}
       classList={{
         [styles.tagged]: true,
-        [styles.top]: position === 'top',
-        [styles.bottom]: position === 'bottom',
-        [styles['right-top']]: position === 'rightTop',
-        [styles['right-bottom']]: position === 'rightBottom',
-        [styles['inner-top']]: position === 'innerTop',
-        [styles['inner-bottom']]: position === 'innerBottom',
-        [styles['inner-right-top']]: position === 'innerRightTop',
-        [styles['inner-right-bottom']]: position === 'innerRightBottom',
+        [styles.accent]: val(props.accent),
+        [styles['top-left']]: val(props.topLeft),
+        [styles['bottom-left']]: val(props.bottomLeft),
+        [styles['top-right']]: val(props.topRight),
+        [styles['bottom-right']]: val(props.bottomRight),
+        [styles['inner-top-left']]: val(props.innerTopLeft),
+        [styles['inner-bottom-left']]: val(props.innerBottomLeft),
+        [styles['inner-top-right']]: val(props.innerTopRight),
+        [styles['inner-bottom-right']]: val(props.innerBottomRight),
         ...props.classList,
       }}
     >

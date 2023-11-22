@@ -32,81 +32,83 @@ $thickness: 1px
 .tagged
     position: relative
 
-    .top::before
+    --tag-color: var(--text-color)
+
+    &.accent
+        --tag-color: var(--accent-color)
+
+    &.top-left::before
         content: ""
         position: absolute
         width: 8px
-        height: 2px
+        // height: 2px
         top: 0.5px
         left: -16px
-        border-top: 1px solid var(--text-color)
+        border-top: 1px solid var(--tag-color)
 
-    &.bottom::before
+    &.bottom-left::before
         content: ""
         position: absolute
         width: 8px
-        height: 2px
+        // Removing for now so top and bottom can be used together
+        // height: 2px
         bottom: 0.5px
         left: -16px
-        border-bottom: 1px solid var(--text-color)
+        border-bottom: 1px solid var(--tag-color)
 
-    &.right-top::before
+    &.top-right::before
         content: ""
         position: absolute
         width: 8px
-        height: 2px
+        // height: 2px
         top: 0.5px
         right: -16px
-        border-top: 1px solid var(--text-color)
+        border-top: 1px solid var(--tag-color)
 
-    &.right-bottom::before
+    &.bottom-right::before
         content: ""
         position: absolute
         width: 8px
-        height: 2px
+        // height: 2px
         bottom: 0.5px
         right: -16px
-        border-bottom: 1px solid var(--text-color)
+        border-bottom: 1px solid var(--tag-color)
 
-    &.inner-top::before
+    &.inner-top-left::before
         content: ""
         position: absolute
         width: 8px
-        height: 2px
+        // height: 2px
         top: 0.5px
         left: 0
-        border-top: 1px solid var(--text-color)
-        border-right: 1px solid var(--text-color)
+        border-top: 1px solid var(--tag-color)
 
-    &.inner-bottom::before
+    &.inner-bottom-left::before
         content: ""
         position: absolute
         width: 8px
-        height: 2px
+        // height: 2px
         bottom: 0.5px
         left: 0
-        border-bottom: 1px solid var(--text-color)
-        border-right: 1px solid var(--text-color)
+        border-bottom: 1px solid var(--tag-color)
 
-    &.inner-right-top::before
+    &.inner-top-right::before
         content: ""
         position: absolute
         width: 8px
-        height: 2px
+        // height: 2px
         top: 0.5px
         right: 0
-        border-top: 1px solid var(--text-color)
-        border-left: 1px solid var(--text-color)
+        border-top: 1px solid var(--tag-color)
 
-    &.inner-right-bottom::before
+    &.inner-bottom-right::before
         content: ""
         position: absolute
         width: 8px
-        height: 2px
+        // height: 2px
         bottom: 0.5px
         right: 0
-        border-bottom: 1px solid var(--text-color)
-        border-left: 1px solid var(--text-color)
+        border-bottom: 1px solid var(--tag-color)
 
 .lined
     position: relative
